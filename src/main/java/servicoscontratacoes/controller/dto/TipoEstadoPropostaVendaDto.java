@@ -1,9 +1,9 @@
-package br.com.itau.servicoscontratacoes.controller.dto;
+package servicoscontratacoes.controller.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.itau.servicoscontratacoes.model.TipoEstadoPropostaVenda;
+import servicoscontratacoes.model.TipoEstadoPropostaVenda;
 
 public class TipoEstadoPropostaVendaDto {
 

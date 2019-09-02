@@ -1,4 +1,4 @@
-package br.com.itau.servicoscontratacoes.model;
+package servicoscontratacoes.model;
 
 import java.util.Collection;
 
@@ -9,10 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.com.itau.servicoscontratacoes.controller.dto.MaquinaEstadoPropostaDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import servicoscontratacoes.controller.dto.MaquinaEstadoPropostaDto;
 
 @AllArgsConstructor
 @NoArgsConstructor

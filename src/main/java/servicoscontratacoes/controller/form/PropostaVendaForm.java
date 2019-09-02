@@ -1,7 +1,7 @@
-package br.com.itau.servicoscontratacoes.controller.form;
+package servicoscontratacoes.controller.form;
 
-import br.com.itau.servicoscontratacoes.model.PropostaVenda;
-import br.com.itau.servicoscontratacoes.repository.TipoEstadoPropostaVendaRepository;
+import servicoscontratacoes.model.PropostaVenda;
+import servicoscontratacoes.repository.TipoEstadoPropostaVendaRepository;
 
 public class PropostaVendaForm {
 

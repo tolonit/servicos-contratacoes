@@ -1,11 +1,11 @@
-package br.com.itau.servicoscontratacoes.repository;
+package servicoscontratacoes.repository;
 
 import javax.validation.Valid;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.itau.servicoscontratacoes.controller.form.TipoEstadoPropostaVendaForm;
-import br.com.itau.servicoscontratacoes.model.TipoEstadoPropostaVenda;
+import servicoscontratacoes.controller.form.TipoEstadoPropostaVendaForm;
+import servicoscontratacoes.model.TipoEstadoPropostaVenda;
 
 public interface TipoEstadoPropostaVendaRepository extends JpaRepository<TipoEstadoPropostaVenda, Integer> {
 

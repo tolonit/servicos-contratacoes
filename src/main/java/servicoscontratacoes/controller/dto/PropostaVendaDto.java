@@ -1,8 +1,8 @@
-package br.com.itau.servicoscontratacoes.controller.dto;
+package servicoscontratacoes.controller.dto;
 
 import org.springframework.data.domain.Page;
 
-import br.com.itau.servicoscontratacoes.model.PropostaVenda;
+import servicoscontratacoes.model.PropostaVenda;
 
 public class PropostaVendaDto {
 

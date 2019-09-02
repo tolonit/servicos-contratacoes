@@ -1,9 +1,9 @@
-package br.com.itau.servicoscontratacoes.controller.form;
+package servicoscontratacoes.controller.form;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import br.com.itau.servicoscontratacoes.model.TipoEstadoPropostaVenda;
+import servicoscontratacoes.model.TipoEstadoPropostaVenda;
 
 public class TipoEstadoPropostaVendaForm {
 

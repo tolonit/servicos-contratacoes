@@ -1,7 +1,7 @@
-package br.com.itau.servicoscontratacoes.repository;
+package servicoscontratacoes.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.itau.servicoscontratacoes.model.PropostaVenda;
+import servicoscontratacoes.model.PropostaVenda;
 
 public interface PropostaVendaRepository extends JpaRepository<PropostaVenda, Integer>{}

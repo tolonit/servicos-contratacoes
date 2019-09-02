@@ -1,10 +1,10 @@
-package br.com.itau.servicoscontratacoes.controller.dto;
+package servicoscontratacoes.controller.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.itau.servicoscontratacoes.model.MaquinaEstadoProposta;
+import servicoscontratacoes.model.MaquinaEstadoProposta;
 
 public class MaquinaEstadoPropostaDto {
 

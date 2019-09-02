@@ -1,4 +1,4 @@
-package br.com.itau.servicoscontratacoes.controller;
+package servicoscontratacoes.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.itau.servicoscontratacoes.controller.dto.DetalhePropostaVendaDto;
-import br.com.itau.servicoscontratacoes.controller.dto.PropostaVendaDto;
-import br.com.itau.servicoscontratacoes.controller.form.PropostaVendaForm;
-import br.com.itau.servicoscontratacoes.model.MaquinaEstadoProposta;
-import br.com.itau.servicoscontratacoes.model.PropostaVenda;
-import br.com.itau.servicoscontratacoes.model.TipoEstadoPropostaVenda;
-import br.com.itau.servicoscontratacoes.repository.MaquinaEstadoPropostaRepository;
-import br.com.itau.servicoscontratacoes.repository.PropostaVendaRepository;
-import br.com.itau.servicoscontratacoes.repository.TipoEstadoPropostaVendaRepository;
+import servicoscontratacoes.controller.dto.PropostaVendaDetalheDto;
+import servicoscontratacoes.controller.dto.PropostaVendaDto;
+import servicoscontratacoes.controller.form.PropostaVendaForm;
+import servicoscontratacoes.model.MaquinaEstadoProposta;
+import servicoscontratacoes.model.PropostaVenda;
+import servicoscontratacoes.model.TipoEstadoPropostaVenda;
+import servicoscontratacoes.repository.MaquinaEstadoPropostaRepository;
+import servicoscontratacoes.repository.PropostaVendaRepository;
+import servicoscontratacoes.repository.TipoEstadoPropostaVendaRepository;
 
 @RestController
 @RequestMapping("/propostas")
@@ -47,12 +47,12 @@ public class PropostaVendaController {
 	}
 
 	@GetMapping("/{id}")
-	public DetalhePropostaVendaDto detalhar(@PathVariable Integer id ) {
+	public PropostaVendaDetalheDto detalhar(@PathVariable Integer id ) {
 		PropostaVenda propostaVenda = propostaVendaRepository.getOne(id);
 		List<MaquinaEstadoProposta> maquinaEstado = maquinaEstadoPropostaRepository.findAllByCodPrptVend(id);
 		TipoEstadoPropostaVenda tipoEstadoPropostaVenda = tipoEstadoPropostaVendaRepository.getOne(propostaVenda.getCodTipoEstdPrptVend());
 		
-		return new DetalhePropostaVendaDto(propostaVenda, maquinaEstado, tipoEstadoPropostaVenda);
+		return new PropostaVendaDetalheDto(propostaVenda, maquinaEstado, tipoEstadoPropostaVenda);
 	}
 	
 	@PostMapping
@@ -63,6 +63,4 @@ public class PropostaVendaController {
 		URI uri = uriBuilder.path("/propostas/{id}").buildAndExpand(propostaVenda.getCodPrptVend()).toUri();
 		return ResponseEntity.created(uri).body(new PropostaVendaDto(propostaVenda));
 	}
-		
-	
 }

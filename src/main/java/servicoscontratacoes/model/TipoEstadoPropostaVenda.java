@@ -1,4 +1,4 @@
-package br.com.itau.servicoscontratacoes.model;
+package servicoscontratacoes.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

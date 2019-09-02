@@ -1,4 +1,4 @@
-package br.com.itau.servicoscontratacoes;
+package servicoscontratacoes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

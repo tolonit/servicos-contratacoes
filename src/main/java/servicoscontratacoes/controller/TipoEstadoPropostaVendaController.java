@@ -1,4 +1,4 @@
-package br.com.itau.servicoscontratacoes.controller;
+package servicoscontratacoes.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.itau.servicoscontratacoes.controller.dto.TipoEstadoPropostaVendaDto;
-import br.com.itau.servicoscontratacoes.controller.form.TipoEstadoPropostaVendaForm;
-import br.com.itau.servicoscontratacoes.model.TipoEstadoPropostaVenda;
-import br.com.itau.servicoscontratacoes.repository.TipoEstadoPropostaVendaRepository;
+import servicoscontratacoes.controller.dto.TipoEstadoPropostaVendaDto;
+import servicoscontratacoes.controller.form.TipoEstadoPropostaVendaForm;
+import servicoscontratacoes.model.TipoEstadoPropostaVenda;
+import servicoscontratacoes.repository.TipoEstadoPropostaVendaRepository;
 
 @RestController
 @RequestMapping
