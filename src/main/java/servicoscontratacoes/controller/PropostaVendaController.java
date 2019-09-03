@@ -72,7 +72,7 @@ public class PropostaVendaController {
 		return ResponseEntity.created(uri).body(new PropostaVendaDto(propostaVenda));
 	}
 	
-	public List<PropostaVendaLista> listaPropostas() {
+	private List<PropostaVendaLista> listaPropostas() {
 		
 		List<PropostaVenda> propostaVenda = propostaVendaRepository.findAll();
 		List<PropostaVendaLista> propostaVendaLista = new ArrayList<>(); 
