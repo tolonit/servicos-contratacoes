@@ -79,9 +79,10 @@ public class PropostaVendaController {
 				
 		for (PropostaVenda item : propostaVenda) {
 			
-			propostaVendaLista.add(new PropostaVendaLista(item.getCodPrptVend(),
-					tipoEstadoPropostaVendaRepository.getOne(item.getCodTipoEstdPrptVend()),
-					maquinaEstadoPropostaRepository.findAllByCodPrptVend(item.getCodPrptVend())));
+			propostaVendaLista.add(
+					new PropostaVendaLista(item.getCodPrptVend(),
+											tipoEstadoPropostaVendaRepository.getOne(item.getCodTipoEstdPrptVend()),
+											maquinaEstadoPropostaRepository.findAllByCodPrptVend(item.getCodPrptVend())));
 			
 		}
 		
