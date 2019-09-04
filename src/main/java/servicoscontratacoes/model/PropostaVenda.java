@@ -9,14 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import servicoscontratacoes.controller.dto.MaquinaEstadoPropostaDto;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 @Entity
 @Table(name = "TBCO8008_PRPT_VEND", schema = "dbo")
 public class PropostaVenda {
@@ -34,6 +28,12 @@ public class PropostaVenda {
 	public PropostaVenda() {}
 	
 	public PropostaVenda(Integer idEstado, Integer idProduto) {
+		this.codTipoEstdPrptVend = idEstado;
+		this.codProdPrptVend = idProduto;
+	}
+
+	public PropostaVenda(Integer idProposta, Integer idEstado, Integer idProduto) {
+		this.codPrptVend = idProposta;
 		this.codTipoEstdPrptVend = idEstado;
 		this.codProdPrptVend = idProduto;
 	}

@@ -3,6 +3,8 @@ package servicoscontratacoes.controller.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+
 import servicoscontratacoes.model.PropostaVendaLista;
 
 public class PropostaVendaListaDto {
@@ -24,6 +26,10 @@ public class PropostaVendaListaDto {
 				.map(PropostaVendaListaDto::new)
 				.collect(Collectors.toList());
 	}
+	
+	public static Page<PropostaVendaListaDto> converterPage(Page<PropostaVendaLista> propostaVendaLista) {
+		return propostaVendaLista.map(PropostaVendaListaDto::new);
+	}	
 
 	public Integer getId_proposta() {
 		return id_proposta;

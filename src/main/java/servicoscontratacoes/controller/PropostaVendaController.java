@@ -2,10 +2,13 @@ package servicoscontratacoes.controller;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
@@ -48,11 +51,20 @@ public class PropostaVendaController {
 //		Page<PropostaVenda> propostaVenda = propostaVendaRepository.findAll(paginacao);
 //		return PropostaVendaDto.converter(propostaVenda);
 //	}
+	
+	@GetMapping("/teste")
+	public Page<PropostaVendaListaDto> lista(@PageableDefault(sort="codPrptVend",direction=Direction.ASC,page=0,size=10) Pageable paginacao) {
+		long cpf = 32448109850L;
+		int produto = 1;
 
-	@GetMapping
-	public List<PropostaVendaListaDto> listarPropostas() {
-		return PropostaVendaListaDto.converter(listaPropostas());
+		List<PropostaVenda> propostas = propostaVendaRepository.consultaTeste(cpf, produto);
+		return PropostaVendaListaDto.converterPage(listaPropostas(propostas));
 	}
+	
+//	@GetMapping
+//	public List<PropostaVendaListaDto> listarPropostas() {
+//		return PropostaVendaListaDto.converter(listaPropostas());
+//	}
 	
 	@GetMapping("/{id}")
 	public PropostaVendaDetalheDto detalhar(@PathVariable Integer id ) {
@@ -72,9 +84,25 @@ public class PropostaVendaController {
 		return ResponseEntity.created(uri).body(new PropostaVendaDto(propostaVenda));
 	}
 	
-	private List<PropostaVendaLista> listaPropostas() {
+//	private List<PropostaVendaLista> listaPropostas() {
+//		
+//		List<PropostaVenda> propostaVenda = propostaVendaRepository.findAll();
+//		List<PropostaVendaLista> propostaVendaLista = new ArrayList<>(); 
+//				
+//		for (PropostaVenda item : propostaVenda) {
+//			
+//			propostaVendaLista.add(
+//					new PropostaVendaLista(item.getCodPrptVend(),
+//											tipoEstadoPropostaVendaRepository.getOne(item.getCodTipoEstdPrptVend()),
+//											maquinaEstadoPropostaRepository.findAllByCodPrptVend(item.getCodPrptVend())));
+//			
+//		}
+//		
+//		return propostaVendaLista;
+//	}
+
+	private Page<PropostaVendaLista> listaPropostas(List<PropostaVenda> propostaVenda) {
 		
-		List<PropostaVenda> propostaVenda = propostaVendaRepository.findAll();
 		List<PropostaVendaLista> propostaVendaLista = new ArrayList<>(); 
 				
 		for (PropostaVenda item : propostaVenda) {
@@ -86,6 +114,12 @@ public class PropostaVendaController {
 			
 		}
 		
-		return propostaVendaLista;
+		return new PageImpl<>(propostaVendaLista);
 	}
+
+
+	
+
 }
+
+
